@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 import propertiesRouter from "./routes/properties.js";
+import authRouter from "./routes/auth.js";
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ app.get("/health", (_req, res) => {
 });
 
 app.use("/api/properties", propertiesRouter);
+app.use("/api/auth", authRouter);
 
 app.listen(port, () => {
   console.log(`Backend API running on http://localhost:${port}`);
